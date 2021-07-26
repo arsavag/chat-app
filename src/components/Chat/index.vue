@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import chatData from './chatData.json'
+import chatData from './chatData.json';
 export default {
   name: "Chat",
   props: {
@@ -29,10 +29,10 @@ export default {
   },
   mounted: function() {
     setInterval(() => {
-      this.count++
-      this.newMessage++
-      this.$emit('newMessageLength', this.newMessage)
-    }, 5000)
+      this.count++;
+      this.newMessage++;
+      this.$emit('newMessageLength', this.newMessage);
+    }, 5000);
   },
 };
 </script>

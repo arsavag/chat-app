@@ -41,33 +41,27 @@ export default {
       newMessage: 0
     }
   },
-  watch: {
-    'newMessage': function() {
-      console.log(this.newMessage);
-    }
-  },
   mounted: function() {
     this.scrollDown()
     let lastScrollTop = 0
     this.$refs.tabsContent.addEventListener('scroll', () => {
-      let st = this.$refs.tabsContent.scrollTop;
-      if (st > lastScrollTop){
+      let scrollTop = this.$refs.tabsContent.scrollTop;
+      if (scrollTop > lastScrollTop){
         if(this.$refs.tabsContent.offsetHeight + this.$refs.tabsContent.scrollTop >= this.$refs.tabsContent.scrollHeight) {
-          this.showButton = false
-          this.newMessage = 0
+          this.showButton = false;
+          this.newMessage = 0;
         }
-        
       } else {
-        this.showButton = true
+        this.showButton = true;
       }
-      lastScrollTop = st;
-    })
+      lastScrollTop = scrollTop;
+    });
   },
   methods: {
     scrollDown: function() {
-      this.$refs.tabsContent.scrollTop = this.$refs.tabsContent.scrollHeight
-      this.showButton = false
-      this.newMessage = 0
+      this.$refs.tabsContent.scrollTop = this.$refs.tabsContent.scrollHeight;
+      this.showButton = false;
+      this.newMessage = 0;
     }
   }
 };
