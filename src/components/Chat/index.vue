@@ -68,8 +68,5 @@ div.chat {
       }
     }
   }
-  button {
-    
-  }
 }
 </style>
