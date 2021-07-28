@@ -45,7 +45,6 @@ export default {
   watch:{
     'newMessage': function() {
       this.$nextTick(() => {
-        console.log(this.$refs.tabsContent.scrollTop);
         if(this.$refs.tabsContent.scrollTop >= this.$refs.tabsContent.scrollHeight - (this.$refs.tabsContent.offsetHeight + this.$refs.tabsContent.scrollTop)) {
           this.$refs.tabsContent.scrollTop = this.$refs.tabsContent.scrollHeight;
         }
