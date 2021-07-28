@@ -38,13 +38,25 @@ export default {
     return {
       currentIndex: 0,
       showButton: false,
-      newMessage: 0
+      newMessage: 0,
+      scrolling: false
+    }
+  },
+  watch:{
+    'newMessage': function() {
+      this.$nextTick(() => {
+        console.log(this.$refs.tabsContent.scrollTop);
+        if(this.$refs.tabsContent.scrollTop >= this.$refs.tabsContent.scrollHeight - (this.$refs.tabsContent.offsetHeight + this.$refs.tabsContent.scrollTop)) {
+          this.$refs.tabsContent.scrollTop = this.$refs.tabsContent.scrollHeight;
+        }
+      })
     }
   },
   mounted: function() {
     this.scrollDown()
     let lastScrollTop = 0
     this.$refs.tabsContent.addEventListener('scroll', () => {
+      this.scrolling = true
       let scrollTop = this.$refs.tabsContent.scrollTop;
       if (scrollTop > lastScrollTop){
         if(this.$refs.tabsContent.offsetHeight + this.$refs.tabsContent.scrollTop >= this.$refs.tabsContent.scrollHeight) {
