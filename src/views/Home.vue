@@ -9,10 +9,10 @@
           v-if="currentIndex === 0"/>
         <Speaker v-if="currentIndex === 1"/>
       </div>
-      <Button v-if="showButton && !newMessage" @click.native="scrollDown" type="down">
+      <Button v-if="showButton && !newMessage && currentIndex === 0" @click.native="scrollDown" type="down">
         <Icon icon="down-arrow"/>
       </Button>
-      <Button v-if="showButton && newMessage" @click.native="scrollDown" type="new-message">
+      <Button v-if="showButton && newMessage && currentIndex === 0" @click.native="scrollDown" type="new-message">
         <p>{{newMessage}}</p>
       </Button>
     </div>
